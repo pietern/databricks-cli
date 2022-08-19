@@ -20,10 +20,12 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Configure committer
+      - name: Configure Git
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          gpg --import <<<"${{ secrets.PGP_PRIVATE_KEY }}"
+          git config user.signingkey B450B992FEC1968A
+          git config user.name 'eng-dev-ecosystem-bot[bot]'
+          git config user.email 'eng-dev-ecosystem-bot[bot]@users.noreply.github.com'
 
       - name: Generate versions
         id: version
