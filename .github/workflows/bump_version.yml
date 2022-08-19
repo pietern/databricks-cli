@@ -23,7 +23,7 @@ jobs:
       - name: Configure Git
         run: |
           gpg --import <<<"${{ secrets.PGP_PRIVATE_KEY }}"
-          git config user.signingkey B450B992FEC1968A
+          git config user.signingkey C37F023416771B72
           git config commit.gpgsign true
           git config user.name 'eng-dev-ecosystem-bot[bot]'
           git config user.email '110475461+eng-dev-ecosystem-bot@users.noreply.github.com'
