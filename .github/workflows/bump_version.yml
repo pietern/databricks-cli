@@ -20,6 +20,11 @@ jobs:
         with:
           python-version: "3.10"
 
+      - name: Configure committer
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
       - name: Generate versions
         id: version
         env:
@@ -47,4 +52,4 @@ jobs:
 
       - name: Push
         run: |
-          git push origin ${{ inputs.target_branch }}
+          git push origin main:${{ inputs.target_branch }}
