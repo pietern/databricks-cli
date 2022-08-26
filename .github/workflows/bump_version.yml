@@ -49,6 +49,8 @@ jobs:
           gh pr create --title "Bump version to ${{ steps.version.outputs.release_version }}" --body ""
 
       - name: Bump to development version
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           perl -pi -e 's/${{ steps.version.outputs.release_version }}/${{ steps.version.outputs.development_version }}/' databricks_cli/version.py
           git commit -a -m "Bump version to ${{ steps.version.outputs.development_version }}"
