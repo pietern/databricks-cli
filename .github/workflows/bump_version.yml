@@ -59,4 +59,4 @@ jobs:
         run: |
           git checkout -b ${{ inputs.target_branch }}
           git push origin ${{ inputs.target_branch }}
-          gh pr create --title "Bump version to ${{ steps.version.outputs.release_version }}"
+          gh pr create --title "Bump version to ${{ steps.version.outputs.release_version }}" --body ""
